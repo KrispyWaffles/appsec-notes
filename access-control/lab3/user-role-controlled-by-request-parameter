@@ -1,0 +1,64 @@
+# Lab 3: User Role Controlled by Request Parameter
+
+**Difficulty:** Apprentice  
+**Status:** ✅ Solved  
+**OWASP Reference:** A01 - Broken Access Control
+
+---
+
+## Objective
+Access the admin panel at /admin and delete the user carlos using
+provided credentials: wiener:peter
+
+---
+
+## Vulnerability
+Admin privilege controlled by a forgeable client-side cookie. The
+application uses a cookie value of Admin=true/false to determine
+whether a user has admin access — a value the user can freely modify.
+
+---
+
+## How I Found It
+Logged in with the provided credentials (wiener:peter) and ran Burp
+Suite in the background to capture all HTTP traffic. In the Target
+tab I identified the /my-account request and inspected the request
+headers. On line 3 I spotted a cookie set to Admin=false — a
+client-controlled value the server was trusting to determine the
+user's role.
+
+![Burp Suite Target tab - Admin=false cookie discovered in HTTP history](images/lab3-cookie-admin-false-discovery.png)
+
+---
+
+## Exploitation
+Sent the /my-account request to Burp Repeater. Modified the cookie
+value from Admin=false to Admin=true. Changed the URL to
+/admin/delete?username=carlos and hit Send. The server trusted the
+modified cookie without verifying the user's actual role server-side
+— returning a 302 redirect to /admin confirming the delete was
+executed successfully.
+
+![Burp Repeater - Modified Admin=true cookie and delete carlos request](images/lab3-repeater-delete-carlos.png)
+
+---
+
+## What I Learned
+Cookies are stored client-side and can be freely modified by any
+user. Never trust client-side data to make security decisions.
+Admin roles and privileges must always be verified server-side
+against the user's authenticated session — not read from a value
+the user controls.
+
+---
+
+## The Fix
+Store the user's role in a server-side session tied to their
+authenticated identity. When a sensitive route like /admin is
+requested, check the user's role from the server session — never
+from a cookie or request parameter the client can modify.
+
+---
+
+## Tools Used
+- Burp Suite Community Edition — Proxy, Target, Repeater
