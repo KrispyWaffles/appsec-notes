@@ -27,7 +27,7 @@ headers. On line 3 I spotted a cookie set to Admin=false — a
 client-controlled value the server was trusting to determine the
 user's role.
 
-![Burp Suite Target tab - Admin=false cookie discovered in HTTP history](images/lab3-cookie-admin-false-discovery.png)
+![Burp Suite Target tab - Admin=false cookie discovered in HTTP history](/appsec-notes/access-control/lab3/lab3-cookie-admin-false-discovery.png)
 
 ---
 
@@ -39,7 +39,7 @@ modified cookie without verifying the user's actual role server-side
 — returning a 302 redirect to /admin confirming the delete was
 executed successfully.
 
-![Burp Repeater - Modified Admin=true cookie and delete carlos request](images/lab3-repeater-delete-carlos.png)
+![Burp Repeater - Modified Admin=true cookie and delete carlos request](/appsec-notes/access-control/lab3/lab3-repeater-delete-carlos.png)
 
 ---
 

@@ -9,13 +9,13 @@ the HTML source and found the admin panel path embedded in a script
 tag. Navigated directly to that URL and gained full admin access
 without authentication.
 
-![Lab 2 - Right click inspect](/appsec-notes/lab2/lab2-right-click-inspect.png)
+![Lab 2 - Right click inspect](/appsec-notes/access-control/lab2/lab2-right-click-inspect.png)
 
-![Lab 2 - Admin path found in HTML source](/appsec-notes/lab2/lab2-html-source-admin-path.png)
+![Lab 2 - Admin path found in HTML source](/appsec-notes/access-control/lab2/lab2-html-source-admin-path.png)
 
-![Lab 2 - Admin panel accessed via URL](/appsec-notes/lab2/lab2-admin-panel-access.png)
+![Lab 2 - Admin panel accessed via URL](/appsec-notes/access-control/lab2/lab2-admin-panel-access.png)
 
-![Lab 2 - Admin panel users list](/appsec-notes/lab2/lab2-admin-panel-users.png)
+![Lab 2 - Admin panel users list](/appsec-notes/access-control/lab2/lab2-admin-panel-users.png)
 
 **What I learned:**
 Anything sent to the browser is visible to the user — no matter

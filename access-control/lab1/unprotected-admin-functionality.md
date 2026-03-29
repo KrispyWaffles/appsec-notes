@@ -7,11 +7,11 @@ Navigated to /robots.txt on the lab application. The file revealed a
 disallowed path: /administrator-panel. Navigated directly to that URL
 without any credentials and gained full admin access.
 
-![Lab 1 - Shop Homepage](/appsec-notes/lab1/lab1-shop-homepage.png)
+![Lab 1 - Shop Homepage](/appsec-notes/access-control/lab1/lab1-shop-homepage.png)
 
-![Lab 1 - robots.txt revealing admin path](/appsec-notes/lab1/lab1-robots-txt.png)
+![Lab 1 - robots.txt revealing admin path](/appsec-notes/access-control/lab1/lab1-robots-txt.png)
 
-![Lab 1 - Admin panel accessed](/appsec-notes/lab1/lab1-admin-panel.png)
+![Lab 1 - Admin panel accessed](/appsec-notes/access-control//lab1/lab1-admin-panel.png)
 
 **What I learned:**
 robots.txt is meant to guide search engines, not protect pages.
